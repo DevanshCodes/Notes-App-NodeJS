@@ -2,6 +2,7 @@ const fs = require('fs');
 const notes = require('./notes');
 let validator = require('validator');
 let yargs = require('yargs');
+let chalk = require('chalk');
 // fs.appendFileSync('notes.txt',' This is the second append!');
 // let mynotes = fs.readFileSync('notes.txt','utf8');
 
@@ -59,7 +60,8 @@ yargs.command({
     command: 'list',
     description: 'list the note!',
     handler: function () {
-        console.log('listing a note!')
+        console.log(chalk.green.inverse('Your List!'));
+        notes.listNotes();
     }
 })
 
