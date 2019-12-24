@@ -58,10 +58,23 @@ const listNotes = function() {
     });
 }
 
+const readNotes = function(title){
+    notes = loadNotes();
+    noteToBeRead = notes.find((note) => note.title == title);
+    if(noteToBeRead == undefined){
+        console.log(chalk.red.inverse("Sorry, no notes found."));
+    }
+    else{
+        console.log(chalk.green.inverse("Reading the note!"));
+        console.log(noteToBeRead.body);
+    }
+}
+
 
 module.exports = {
     addNote: addNote,
     getnotes: getnotes,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    readNotes: readNotes
 }
